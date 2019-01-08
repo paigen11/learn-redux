@@ -1,4 +1,4 @@
-import { ADD_ARTICLE } from '../constants/action-types';
+import { ADD_ARTICLE, FOUND_BAD_WORD } from '../constants/action-types';
 
 // this is redux middleware triggered when the action type ADD_ARTICLE is sent
 // it checks for forbidden words and if the title contains a word,
@@ -19,7 +19,7 @@ export function forbiddenWordsMiddleware({ dispatch }) {
         );
 
         if (foundWord.length) {
-          return dispatch({ type: 'FOUND_BAD_WORD' });
+          return dispatch({ type: FOUND_BAD_WORD });
         }
       }
       return next(action);
